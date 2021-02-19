@@ -59,7 +59,7 @@ def _is_cmap(name):
 parser = argparse.ArgumentParser()
 
 parser.add_argument("input",
-                    help="path to input data",
+                    help="path to input csv file",
                     type=_dir_path)
 
 parser.add_argument("output",
@@ -71,12 +71,12 @@ parser.add_argument("feature",
                     type=str)
 
 parser.add_argument("--cmap",
-                    help="matplotlib colormap string",
+                    help="matplotlib colormap string (e.g., 'summer')",
                     default="autumn",
                     type=_is_cmap)
 
 parser.add_argument("--expansion",
-                    help="value by which features are expanded to determine marker sizes",
+                    help="value by which features are expanded to determine marker sizes  (e.g., '3')",
                     default="3",
                     type=int)
 
@@ -96,17 +96,17 @@ parser.add_argument("--position",
                     type=str)
 
 parser.add_argument("--fontsize",
-                    help="The fontsize used in the legend",
+                    help="The fontsize used in the legend (e.g., '10')",
                     default="10",
                     type=int)
 
 parser.add_argument("--fullmap",
-                    help="if the shapefile should be restricted to the states with points in them.",
+                    help="if the shapefile should be restricted to the states with points in them.  (e.g., 'True')",
                     default="False",
                     type=str)
 
 parser.add_argument("--dpi",
-                    help="The dpi used for the figure",
+                    help="The dpi used for the figure (e.g., '100')",
                     default=300,
                     type=int)
 
