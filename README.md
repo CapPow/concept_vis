@@ -6,6 +6,9 @@ CLI tool for taxonomic concept visualization
 # clone this repo
 git clone https://github.com/CapPow/concept_vis
 
+# navigate to it
+cd concept_vis
+
 # create a new virtual python environment
 python3 -m venv .venv
 
