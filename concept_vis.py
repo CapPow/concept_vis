@@ -134,8 +134,10 @@ else:
     # Restrict the figure to those states of interest
     states = state_shp[state_shp["NAME"].isin(keep_states)]
 
+fig = plt.figure()
 ax = states.plot(color='white', edgecolor='black')
-
+ax.axis("off")
+plt.subplots_adjust(left=0, right=1, bottom=0, top=1)
 # generate the markersize column
 gdf = gen_markersize(gdf, args.feature, expansion=args.expansion)
 
@@ -153,4 +155,4 @@ gdf.plot(ax=ax,
          edgecolors='k') # edgecolors make a border
 
 # force a tight layout
-plt.savefig(args.output, dpi=args.dpi)
+plt.savefig(args.output, dpi=args.dpi, pad_inches=0)
