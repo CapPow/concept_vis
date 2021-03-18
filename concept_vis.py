@@ -110,6 +110,12 @@ parser.add_argument("--dpi",
                     default=300,
                     type=int)
 
+parser.add_argument("--pad",
+                    help="The padding used for cropping the figure (e.g., 5)",
+                    default=4,
+                    type=int)
+
+
 args = parser.parse_args()
 # load the dataframe into pandas
 df = pd.read_csv(args.input)
@@ -136,6 +142,13 @@ else:
 
 fig = plt.figure()
 ax = states.plot(color='white', edgecolor='black')
+
+# establish the region of interest
+minx, miny, maxx, maxy = gdf.total_bounds
+ax.set_xlim(minx-args.pad, maxx+args.pad)
+ax.set_ylim(miny-args.pad, maxy+args.pad)
+
+
 ax.axis("off")
 plt.subplots_adjust(left=0, right=1, bottom=0, top=1)
 # generate the markersize column
